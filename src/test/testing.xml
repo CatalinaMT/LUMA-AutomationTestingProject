@@ -1,0 +1,10 @@
+<!-- Rularea testelor in paralel -->
+
+<suite name="Suite Metoda Paralele" parallel="classes" thread-count="3">
+    <test name="Test 1">
+        <packages>
+            <package name="Tests.*" />
+        </packages>
+    </test>
+</suite>
+

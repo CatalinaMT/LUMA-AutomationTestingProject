@@ -1,0 +1,19 @@
+<!-- Seturi de date pentru Creare Cont si SignIn  -->
+
+<dataSets>
+
+<dataSet_1>
+    <firstName>Popescu</firstName>
+    <lastName>Ion</lastName>
+    <email>Abcd@gmail.com</email>
+    <password>Abcd123.</password>
+    <confirmPassword>Abcd123.</confirmPassword>
+</dataSet_1>
+
+<dataSetSignIn_1>
+    <emailSignIn>testtest@gmail.com</emailSignIn>
+    <passwordSignIn>123testABSD</passwordSignIn>
+</dataSetSignIn_1>
+
+
+</dataSets>
