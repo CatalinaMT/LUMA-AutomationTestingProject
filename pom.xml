@@ -63,7 +63,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <browser>chrome</browser>
-                               <!-- <ci_cd>true</ci_cd> -->
+                               <ci_cd>true</ci_cd>  <!--ruleaza chrome fara a vedea vizual ceva (in Git)-->
                             </systemPropertyVariables>
                         </configuration>
                     </plugin>

@@ -9,7 +9,7 @@ public class BrowserFactory
     public WebDriver getBrowserFactory()
     {
         String browser = System.getProperty("browser"); // nodul "browser" din pom.xml
-       // System.out.println("Ruleaza " + browser);
+        System.out.println("Ruleaza " + browser);
 
         switch (browser)
         {
