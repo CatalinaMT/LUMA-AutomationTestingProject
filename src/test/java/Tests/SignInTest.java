@@ -8,7 +8,8 @@ import Pages.SignInPage;
 import ShareDataBrowser.Hooks;
 import ShareDataBrowser.ShareData;
 import XmlReaderUtility.XmlReader;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
 
 import java.util.Map;
 

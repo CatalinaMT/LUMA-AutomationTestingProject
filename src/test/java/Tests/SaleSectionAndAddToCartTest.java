@@ -5,7 +5,7 @@ import HelperMethods.ElementsMethods;
 import Pages.HomePage;
 import Pages.SaleSectionAndAddToCartPage;
 import ShareDataBrowser.Hooks;
-import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;

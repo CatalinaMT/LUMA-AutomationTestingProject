@@ -8,7 +8,8 @@ import Pages.CreateAnAccountPage;
 import Pages.HomePage;
 import ShareDataBrowser.Hooks;
 import XmlReaderUtility.XmlReader;
-import org.junit.Test;
+import org.testng.annotations.Test;
+
 
 import java.util.Map;
 
@@ -26,6 +27,7 @@ public class CreateAnAccountTest extends Hooks
         homePage = new HomePage(getDriver());
         elementsMethods = new ElementsMethods(getDriver());
         createAnAccountPage = new CreateAnAccountPage(getDriver());
+        javascriptMethods = new JavascriptMethods(getDriver());
 
         createAccount_SignIn_ObjectDataMap = XmlReader.loadData("src/test/resources/CreateAccount_SignIn_Data.xml", CreateAccount_SignIn_ObjectData.class);
         CreateAccount_SignIn_ObjectData data = createAccount_SignIn_ObjectDataMap.get("dataSet_1");

@@ -8,7 +8,7 @@ import java.io.*;
 
 public class LoggerUtility
 {
-    private static final String suiteLogsPath = "target/log/suite";  //folderul in care se duc rapoartele
+    private static final String suiteLogsPath = "target/logs/suite";  //folderul in care se duc rapoartele
     private static final String regressionSuiteLogsPath = "target/logs/";  //folderul in care se duc toate rapoartele etstelor
     private static final Logger logger = LogManager.getLogger();
 

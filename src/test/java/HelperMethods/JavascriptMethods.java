@@ -6,6 +6,12 @@ import org.openqa.selenium.WebDriver;
 public class JavascriptMethods
 {
     WebDriver driver;
+
+    public JavascriptMethods(WebDriver driver)
+    {
+        this.driver = driver;
+    }
+
     //scroll pe pagina
     public void scrollOnPage(int x, int y)
     {
