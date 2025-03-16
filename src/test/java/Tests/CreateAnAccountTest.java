@@ -23,9 +23,8 @@ public class CreateAnAccountTest extends Hooks {
 
 
     //CREARE CONT POSITIVE FLOW
-    //ca testul sa fie PASSED, TREBUIE SA MODIFICAM firstName2, lastName2 si email2 din xml "CreateAccount_SignIn_Data"
+    //PASSED test=TREBUIE SA MODIFICAM la fiecare rulare valorile din xml "CreateAccount_SignIn_Data" pt firstName2, lastName2 si email2
     @Test
-
     public void metodaTestPositiveFlow()
     {
         homePage = new HomePage(getDriver());
@@ -61,6 +60,7 @@ public class CreateAnAccountTest extends Hooks {
 
         homePage.clickOnCreateAccButtonHome();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Home Page");
+        javascriptMethods.scrollOnPage(0, 300);
         createAnAccountPage.completeCreateAccountPageNegativeFlow(data2);
         javascriptMethods.scrollOnPage(0, 300);
         createAnAccountPage.clickOnCreateAnAccButtonRegister();

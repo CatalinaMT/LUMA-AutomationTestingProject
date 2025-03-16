@@ -7,6 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SignInPage
 {
@@ -23,14 +27,22 @@ public class SignInPage
 
     //sign in elements
 
-    @FindBy(id="email")
+    @FindBy (id="email")
     WebElement emailFieldSignIn;
 
-    @FindBy(id="pass")
+    @FindBy (id="pass")
     WebElement passwordFieldSignIn;
 
-    @FindBy(xpath = "//button[@class='action login primary']")
+    @FindBy (xpath = "//button[@class='action login primary']")
     WebElement signInButton;
+
+    //identificare text "My Account"
+    @FindBy (xpath = "//*[@class='base']")
+    WebElement signInSuccessfullyMessage;
+
+    //identificare mesaj eroare
+    @FindBy (xpath = "//*[@class='message-error error message']")
+    WebElement unsuccessfullySignInMessage;
 
 
     //Sign In cu credentiale valide - happy flow
@@ -53,11 +65,28 @@ public class SignInPage
     }
 
 
-
-
     public void clickOnSignInButton ()
     {
         elementsMethods.clickOnElement(signInButton);
     }
+
+
+    //textul "My Account" (true/false) din Positive Flow
+    public boolean signInSuccessfullyMessageDisplayed()
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(signInSuccessfullyMessage));
+        return signInSuccessfullyMessage.isDisplayed();
+    }
+
+    //mesajul de eroare (true/false) din Negative Flow
+    public boolean unsuccessfullySignInMessageDisplayed()
+    {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(unsuccessfullySignInMessage));
+        return unsuccessfullySignInMessage.isDisplayed();
+    }
+
+
 
 }

@@ -48,13 +48,13 @@ public class CreateAnAccountPage
     @FindBy (xpath = "//button[@class='action submit primary']")
     WebElement createAnAccountButtonRegister;
 
-    //mesaj eroare dupa click pe butonul creare cont (indiferent de tipul credentialelor)
-    @FindBy (xpath = "//*[@class='message-error error message']")
-    WebElement emailExistsErrorMessage;
-
-    //mesaj cont creat cu succes
+    //identificare mesaj cont creat cu succes: "Thank you for registering with Main Website Store."
     @FindBy (xpath = "//*[@class='message-success success message']")
     WebElement accountCreatedSuccessfullyMessage;
+
+    //identificarea mesajului de eroare dupa click pe butonul creare: "The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later." cont
+    @FindBy (xpath = "//*[@class='message-error error message']")
+    WebElement emailExistsErrorMessage;
 
 
 
@@ -73,7 +73,6 @@ public class CreateAnAccountPage
         LoggerUtility.infoTest("The user completes confirm password field");
         javascriptMethods.scrollOnPage(0, 100);
     }
-
 
 
 
@@ -104,7 +103,7 @@ public class CreateAnAccountPage
     //returnarea mesajului de eroare (true/false) din Negative Flow
     public boolean emailAlreadyExistsMessageDisplayed()
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(emailExistsErrorMessage));
         return emailExistsErrorMessage.isDisplayed();
     }
@@ -114,7 +113,7 @@ public class CreateAnAccountPage
 
     public boolean accountCreatedSuccessfullyMessageDisplayed()
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.visibilityOf(accountCreatedSuccessfullyMessage));
         return accountCreatedSuccessfullyMessage.isDisplayed();
     }

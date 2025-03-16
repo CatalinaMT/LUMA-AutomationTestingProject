@@ -8,6 +8,7 @@ import Pages.SignInPage;
 import ShareDataBrowser.Hooks;
 import ShareDataBrowser.ShareData;
 import XmlReaderUtility.XmlReader;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Map;
 
@@ -35,6 +36,7 @@ public class SignInTest extends Hooks {
         signInPage.completeSignInPositiveFlow(data3);
         signInPage.clickOnSignInButton();
         LoggerUtility.infoTest("The user clicks on Sign In from Sign In page");
+        Assert.assertTrue(signInPage.signInSuccessfullyMessageDisplayed());
     }
 
     //SIGN IN NEGATIVE FLOW
@@ -53,6 +55,7 @@ public class SignInTest extends Hooks {
         signInPage.completeSignInNegativeFlow(data4);
         signInPage.clickOnSignInButton();
         LoggerUtility.infoTest("The user clicks on Sign In from Sign In page");
+        Assert.assertTrue(signInPage.unsuccessfullySignInMessageDisplayed());
     }
 
 }

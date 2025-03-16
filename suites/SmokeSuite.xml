@@ -1,0 +1,11 @@
+<!-- Rularea testelor in paralel: maxim 4 teste (am 4 threads) -->
+
+<suite name="Suite Smoke Test" parallel="classes" thread-count="4">
+    <test name="Smoke Suite">
+        <classes>
+            <class name = "Tests.CreateAnAccountTest"/>
+            <class name = "Tests.SignInTest"/>
+        </classes>
+    </test>
+</suite>
+

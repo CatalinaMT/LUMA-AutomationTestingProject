@@ -47,12 +47,32 @@
             <version>2.3.2</version>
         </dependency>
 
-
-
     </dependencies>
 
+    <!-- rapoarte -->
+    <profiles>
+        <profile>
+            <id>CustomSuite</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>${suiteXmlFile}.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
-        <!-- dependinta pentru rulare pe Chrome sau Edge. Switch de browsere -->
+
+
+        <!-- rulare pe Chrome sau Edge. Switch de browsere -->
         <build>
             <pluginManagement>
                 <plugins>

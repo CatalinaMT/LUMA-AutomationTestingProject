@@ -3,9 +3,9 @@
 <dataSets>
 
     <dataSet_1> <!-- creare cont happy flow (CA TESTUL SA TREACA, TREBUIE SA MODIFIC firstName2, lastName2 si email2)-->
-        <firstName1>UserFirstName13</firstName1>
-        <lastName1>UserLastName13</lastName1>
-        <email1>User13test@gmail.com</email1>
+        <firstName1>UserFirstName16</firstName1>
+        <lastName1>UserLastName16</lastName1>
+        <email1>User16test@gmail.com</email1>
         <password1>Abcdefg123.</password1>
         <confirmPassword1>Abcdefg123.</confirmPassword1>
     </dataSet_1>
