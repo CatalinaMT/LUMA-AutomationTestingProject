@@ -8,6 +8,7 @@ import Pages.CreateAnAccountPage;
 import Pages.HomePage;
 import ShareDataBrowser.Hooks;
 import XmlReaderUtility.XmlReader;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -32,15 +33,21 @@ public class CreateAnAccountTest extends Hooks {
         createAnAccountPage = new CreateAnAccountPage(getDriver());
         javascriptMethods = new JavascriptMethods(getDriver());
 
+        ChainTestListener.log("Chrome opened");
+
         createAccount_SignIn_ObjectDataMap = XmlReader.loadData("src/test/resources/CreateAccount_SignIn_Data.xml", CreateAccount_SignIn_ObjectData.class);
         CreateAccount_SignIn_ObjectData data1 = createAccount_SignIn_ObjectDataMap.get("dataSet_1");
 
         homePage.clickOnCreateAccButtonHome();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Home Page");
+        ChainTestListener.log("User clicked on Create Account Button from Home Page");
         createAnAccountPage.completeCreateAccountPagePositiveFlow(data1);
+        ChainTestListener.log("User completed fields from Create Account Page");
         javascriptMethods.scrollOnPage(0, 300);
+        ChainTestListener.log("User scroll on page");
         createAnAccountPage.clickOnCreateAnAccButtonRegister();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
+        ChainTestListener.log("User clicked on on Create Account Button from Register Page after he finished to complete fields");
         Assert.assertTrue(createAnAccountPage.accountCreatedSuccessfullyMessageDisplayed());
     }
 
@@ -54,17 +61,21 @@ public class CreateAnAccountTest extends Hooks {
         createAnAccountPage = new CreateAnAccountPage(getDriver());
         javascriptMethods = new JavascriptMethods(getDriver());
 
+        ChainTestListener.log("Chrome opened");
 
         createAccount_SignIn_ObjectDataMap = XmlReader.loadData("src/test/resources/CreateAccount_SignIn_Data.xml", CreateAccount_SignIn_ObjectData.class);
         CreateAccount_SignIn_ObjectData data2 = createAccount_SignIn_ObjectDataMap.get("dataSet_2");
 
         homePage.clickOnCreateAccButtonHome();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Home Page");
-        javascriptMethods.scrollOnPage(0, 300);
+        ChainTestListener.log("User clicked on Create Account Button from Home Page");
         createAnAccountPage.completeCreateAccountPageNegativeFlow(data2);
+        ChainTestListener.log("User completed fields from Create Account Page");
         javascriptMethods.scrollOnPage(0, 300);
+        ChainTestListener.log("User scroll on page");
         createAnAccountPage.clickOnCreateAnAccButtonRegister();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
+        ChainTestListener.log("User clicked on on Create Account Button from Register Page after he finished to complete fields");
         Assert.assertTrue(createAnAccountPage.emailAlreadyExistsMessageDisplayed());
     }
 
