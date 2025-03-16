@@ -17,6 +17,7 @@ public class ChromeService implements BrowserServiceInterface
     {
         ChromeOptions options = (ChromeOptions) browserOptions();
         driver = new ChromeDriver(options);
+
     }
 
     @Override

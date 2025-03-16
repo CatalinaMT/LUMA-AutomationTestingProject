@@ -8,48 +8,69 @@ import Pages.CreateAnAccountPage;
 import Pages.HomePage;
 import ShareDataBrowser.Hooks;
 import XmlReaderUtility.XmlReader;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
 import java.util.Map;
 
-public class CreateAnAccountTest extends Hooks
-{
+public class CreateAnAccountTest extends Hooks {
     HomePage homePage;
     CreateAnAccountPage createAnAccountPage;
     ElementsMethods elementsMethods;
     JavascriptMethods javascriptMethods;
     private Map<String, CreateAccount_SignIn_ObjectData> createAccount_SignIn_ObjectDataMap;
 
-    @Test
-    public void metodaTest() {
 
+    //CREARE CONT POSITIVE FLOW
+    //ca testul sa fie PASSED, TREBUIE SA MODIFICAM firstName2, lastName2 si email2 din xml "CreateAccount_SignIn_Data"
+    @Test
+
+    public void metodaTestPositiveFlow()
+    {
         homePage = new HomePage(getDriver());
         elementsMethods = new ElementsMethods(getDriver());
         createAnAccountPage = new CreateAnAccountPage(getDriver());
         javascriptMethods = new JavascriptMethods(getDriver());
 
         createAccount_SignIn_ObjectDataMap = XmlReader.loadData("src/test/resources/CreateAccount_SignIn_Data.xml", CreateAccount_SignIn_ObjectData.class);
-        CreateAccount_SignIn_ObjectData data = createAccount_SignIn_ObjectDataMap.get("dataSet_1");
+        CreateAccount_SignIn_ObjectData data1 = createAccount_SignIn_ObjectDataMap.get("dataSet_1");
 
         homePage.clickOnCreateAccButtonHome();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Home Page");
+        createAnAccountPage.completeCreateAccountPagePositiveFlow(data1);
         javascriptMethods.scrollOnPage(0, 300);
-        createAnAccountPage.completeFirstNameField(data);
-        LoggerUtility.infoTest("The user complete first name field");
-        createAnAccountPage.completeLastNameField(data);
-        LoggerUtility.infoTest("The user complete last name field");
-        createAnAccountPage.completeEmailField(data);
-        LoggerUtility.infoTest("The user complete email field");
-        createAnAccountPage.completePasswordField(data);
-        LoggerUtility.infoTest("The user complete password field");
-        createAnAccountPage.completeConfirmPasswordField(data);
-        LoggerUtility.infoTest("The user complete confirm password field");
-        javascriptMethods.scrollOnPage(0, 100);
         createAnAccountPage.clickOnCreateAnAccButtonRegister();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
+        Assert.assertTrue(createAnAccountPage.accountCreatedSuccessfullyMessageDisplayed());
+    }
 
 
+    //CREARE CONT NEGATIVE FLOW
+    @Test
+    public void metodaTestNegativeFlow()
+    {
+        homePage = new HomePage(getDriver());
+        elementsMethods = new ElementsMethods(getDriver());
+        createAnAccountPage = new CreateAnAccountPage(getDriver());
+        javascriptMethods = new JavascriptMethods(getDriver());
+
+
+        createAccount_SignIn_ObjectDataMap = XmlReader.loadData("src/test/resources/CreateAccount_SignIn_Data.xml", CreateAccount_SignIn_ObjectData.class);
+        CreateAccount_SignIn_ObjectData data2 = createAccount_SignIn_ObjectDataMap.get("dataSet_2");
+
+        homePage.clickOnCreateAccButtonHome();
+        LoggerUtility.infoTest("The user clicks on Create Account Button from Home Page");
+        createAnAccountPage.completeCreateAccountPageNegativeFlow(data2);
+        javascriptMethods.scrollOnPage(0, 300);
+        createAnAccountPage.clickOnCreateAnAccButtonRegister();
+        LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
+        Assert.assertTrue(createAnAccountPage.emailAlreadyExistsMessageDisplayed());
     }
 
 }
+
+
+
+
+

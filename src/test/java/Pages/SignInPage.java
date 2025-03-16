@@ -1,6 +1,7 @@
 package Pages;
 
 import HelperMethods.ElementsMethods;
+import Logger.LoggerUtility;
 import ObjectData.CreateAccount_SignIn_ObjectData;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,16 +33,25 @@ public class SignInPage
     WebElement signInButton;
 
 
-    public void signInEmailField (CreateAccount_SignIn_ObjectData data)
+    //Sign In cu credentiale valide - happy flow
+    public void completeSignInPositiveFlow(CreateAccount_SignIn_ObjectData data3)
     {
-        elementsMethods.fillElement(emailFieldSignIn, data.getEmailSignIn());
+        elementsMethods.fillElement(emailFieldSignIn, data3.getEmailSignIn1());
+        LoggerUtility.infoTest("The user completes email field");
+        elementsMethods.fillElement(passwordFieldSignIn, data3.getPasswordSignIn1());
+        LoggerUtility.infoTest("The user completes password field");
     }
 
 
-    public void signInPasswordField (CreateAccount_SignIn_ObjectData data)
+    //Sign In cu credentiale invalide - negative flow
+    public void completeSignInNegativeFlow(CreateAccount_SignIn_ObjectData data4)
     {
-        elementsMethods.fillElement(passwordFieldSignIn, data.getPasswordSignIn());
+        elementsMethods.fillElement(emailFieldSignIn, data4.getEmailSignIn2());
+        LoggerUtility.infoTest("The user completes email field");
+        elementsMethods.fillElement(passwordFieldSignIn, data4.getPasswordSignIn2());
+        LoggerUtility.infoTest("The user completes password field");
     }
+
 
 
 

@@ -2,18 +2,36 @@
 
 <dataSets>
 
-<dataSet_1>
-    <firstName>Popescu</firstName>
-    <lastName>Ion</lastName>
-    <email>Abcd@gmail.com</email>
-    <password>Abcd123.</password>
-    <confirmPassword>Abcd123.</confirmPassword>
-</dataSet_1>
+    <dataSet_1> <!-- creare cont happy flow (CA TESTUL SA TREACA, TREBUIE SA MODIFIC firstName2, lastName2 si email2)-->
+        <firstName1>UserFirstName13</firstName1>
+        <lastName1>UserLastName13</lastName1>
+        <email1>User13test@gmail.com</email1>
+        <password1>Abcdefg123.</password1>
+        <confirmPassword1>Abcdefg123.</confirmPassword1>
+    </dataSet_1>
 
-<dataSetSignIn_1>
-    <emailSignIn>testtest@gmail.com</emailSignIn>
-    <passwordSignIn>123testABSD</passwordSignIn>
-</dataSetSignIn_1>
+    <dataSet_2> <!-- creare cont negative flow -->
+        <firstName2>UserFirstName1</firstName2>
+        <lastName2>UserLastName1</lastName2>
+        <email2>User1test@gmail.com</email2>
+        <password2>Abcdefg123.</password2>
+        <confirmPassword2>Abcdefg123.</confirmPassword2>
+    </dataSet_2>
+
+
+    <dataSetSignIn_1> <!-- Sign In positive flow -->
+        <emailSignIn1>User12test@gmail.com</emailSignIn1>
+        <passwordSignIn1>Abcdefg123.</passwordSignIn1>
+    </dataSetSignIn_1>
+
+
+<dataSetSignIn_2> <!-- Sign In negative flow -->
+    <emailSignIn2>Cursant1@gmail.com</emailSignIn2>
+    <passwordSignIn2>Abcdefg1234.</passwordSignIn2>
+</dataSetSignIn_2>
+
+
+
 
 
 </dataSets>
