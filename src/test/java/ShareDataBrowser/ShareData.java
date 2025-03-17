@@ -9,21 +9,11 @@ public class ShareData
 
     //utilizarea principiului de incapsulare (initializarea driver-ului)
 
-
     public void initializeBrowser()
     {
         driver = new BrowserFactory().getBrowserFactory();
         driver.get("https://magento.softwaretestingboard.com/");
     }
-
-
-
-//    {
-//        this.driver = new ChromeDriver();
-//        driver.get("https://magento.softwaretestingboard.com/");
-//        driver.manage().window().maximize();
-//    }
-
 
 
     public void clearBrowser()

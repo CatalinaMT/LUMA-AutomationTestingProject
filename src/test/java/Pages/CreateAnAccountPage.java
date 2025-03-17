@@ -29,7 +29,7 @@ public class CreateAnAccountPage
     }
 
 
-    //create account elements
+    //identificarea WebElementelor de pe pagina de creare cont
     @FindBy (id="firstname")
     WebElement firstNameField;
 
@@ -57,7 +57,6 @@ public class CreateAnAccountPage
     WebElement emailExistsErrorMessage;
 
 
-
     //completare fielduri Positive Flow
     public void completeCreateAccountPagePositiveFlow (CreateAccount_SignIn_ObjectData data1)
     {
@@ -73,7 +72,6 @@ public class CreateAnAccountPage
         LoggerUtility.infoTest("The user completes confirm password field");
         javascriptMethods.scrollOnPage(0, 100);
     }
-
 
 
     //completare fielduri Negative Flow
@@ -92,7 +90,7 @@ public class CreateAnAccountPage
         javascriptMethods.scrollOnPage(0, 100);
     }
 
-
+    //metode
     //click buton creare cont
     public void clickOnCreateAnAccButtonRegister()
     {
@@ -110,7 +108,6 @@ public class CreateAnAccountPage
 
 
     //returnare mesaj crearea cont cu succes din Positive Flow
-
     public boolean accountCreatedSuccessfullyMessageDisplayed()
     {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));

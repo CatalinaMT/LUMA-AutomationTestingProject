@@ -1,11 +1,13 @@
 package Tests;
 
-
 import HelperMethods.ElementsMethods;
+import HelperMethods.JavascriptMethods;
+import Logger.LoggerUtility;
 import Pages.HomePage;
 import Pages.SaleSectionAndAddToCartPage;
 import ShareDataBrowser.Hooks;
 
+import com.aventstack.chaintest.plugins.ChainTestListener;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -16,98 +18,66 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 import java.util.List;
 
 public class SaleSectionAndAddToCartTest extends Hooks {
-            //WebDriver driver;
-            HomePage homePage;
-            SaleSectionAndAddToCartPage saleSectionAndAddToCartPage;
 
+    HomePage homePage;
+    SaleSectionAndAddToCartPage saleSectionAndAddToCartPage;
+    ElementsMethods elementsMethods;
+    JavascriptMethods javascriptMethods;
 
     @Test
 
     public void metodaTest() {
 
-//        driver = new ChromeDriver();
-//        driver.get("https://magento.softwaretestingboard.com/");
-//        driver.manage().window().maximize();
-
         homePage = new HomePage(getDriver());
         saleSectionAndAddToCartPage = new SaleSectionAndAddToCartPage(getDriver());
-        homePage.clickOnSale();
+        elementsMethods = new ElementsMethods(getDriver());
+        javascriptMethods = new JavascriptMethods(getDriver());
+
+        ChainTestListener.log("Chrome opened");
+
+        homePage.clickOnSaleButtonHomePage();
+        LoggerUtility.infoTest("The user clicks on Sale Button from Home Page");
+        ChainTestListener.log("User clicks on Sale Button from Home Page");
+
+        javascriptMethods.scrollOnPage(0, 300);
+        LoggerUtility.infoTest("The user scrolls on page");
+        ChainTestListener.log("User scrolled on page");
 
         saleSectionAndAddToCartPage.dealWithExpandStyle();
+        LoggerUtility.infoTest("The user waite until Style Locator expanded and after that it closed. Also user expands Size section");
+        ChainTestListener.log("User waited until Style Locator expanded and after that it closed. Also user expanded Size section");
 
+        saleSectionAndAddToCartPage.dealWithJacketFromSaleButton();
+        LoggerUtility.infoTest("The user clicks on Jacket section from Sale Page");
+        ChainTestListener.log("User clicked on Jacket section from Sale Page");
 
+        saleSectionAndAddToCartPage.filterXSjackets();
+        LoggerUtility.infoTest("User clicks on the XS size filter on the Jackets Page");
+        ChainTestListener.log("User clicked on the XS size filter on the Jackets Page");
 
+        javascriptMethods.scrollOnPage(0, 300);
+        LoggerUtility.infoTest("The user scrolls on page");
+        ChainTestListener.log("User scrolled on page");
 
+        saleSectionAndAddToCartPage.sortByLowToHighPrice();
+        LoggerUtility.infoTest("The user selects first XS Jacket with the lowest price");
+        ChainTestListener.log("User selected first XS Jacket with the lowest price");
 
+        saleSectionAndAddToCartPage.hoverOverXSjacket();
+        LoggerUtility.infoTest("The user hovers over the first XS Jacket with the lowest price");
+        ChainTestListener.log("User hovers over the first XS Jacket with the lowest price");
 
-//        WebElement saleButton = driver.findElement(By.xpath("//span[text()='Sale']"));
-//        saleButton.click();
-//
-//        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-//        javascriptExecutor.executeScript("window.scrollTo(0,285)");
-//
-//
-//        WebElement jacketSaleButton = driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[4]/div[2]/div/div/ul[1]/li[2]/a"));
-//        jacketSaleButton.click();
-//        javascriptExecutor.executeScript("window.scrollTo(0,285)");
-//
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));  //driver wait - explicit care seteaza n secunde sa astepte
-//
-//        List<WebElement> meniu = driver.findElements(By.xpath("//*[@class='filter-options-title']"));//Meniul Jackets Shopping Options din Sale
-//        WebElement elementLocatorStyle = driver.findElement(By.cssSelector("div[data-role='title'][class='filter-options-title']")); //identificare STYLE-cand dam refrash pe pagina, se expandeaza pt cateva secunde si dupa se inchide
-//        wait.until(ExpectedConditions.attributeToBe(elementLocatorStyle, "aria-expanded", "false"));//asteapta pana cand atributul aria expanded pentru Style este false, adica Style nu mai e expandat
-//        meniu.get(1).click();// click pentru expandarea unui element din lista
-//
-//
-//
-//
-//
-//        filtru pentru marime Jackets din sectiunea Sale, marimea XS
-//    WebElement filterSizeJacketXs = driver.findElement(By.cssSelector("div[class='swatch-option text '][option-id='166']"));
-//    filterSizeJacketXs.click();
-//
-//        javascriptExecutor.executeScript("window.scrollTo(0,300)");
-//
-//        //sortare in functie de pret, de la cel mai mic la cel mai mare
-//        WebElement sortBy = driver.findElement(By.id("sorter"));
-//        Select sortByHelp = new Select(sortBy);
-//        sortByHelp.selectByIndex(2);
-//
-//        javascriptExecutor.executeScript("window.scrollTo(0,300)");
-//
-//        //hover peste produs, selectare culoare si adaugare in cos
-//        WebElement xsJacketProduct = driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div[1]/div[3]/ol/li[1]/div"));
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(xsJacketProduct)
-//                .build()
-//                .perform();
-//
-//        WebElement selectGreenColor = driver.findElement(By.id("option-label-color-93-item-53"));
-//        selectGreenColor.click();
-//
-//        WebElement addJacketToCart = driver.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div[1]/div[3]/ol/li[1]/div/div/div[4]/div/div[1]/form/button"));
-//        addJacketToCart.click();
-//
-//       //am mutat mouse-ul de pe produsul adaugat in cos
-//        actions.moveToLocation(0,200)
-//                    .build()
-//                        .perform();
-//
-//        javascriptExecutor.executeScript("window.scrollTo(0,50)");
-//
+        saleSectionAndAddToCartPage.dealWithJacketColor();
+        LoggerUtility.infoTest("The user selects the green color for the first XS Jacket with the lowest price");
+        ChainTestListener.log("User selected the green color for the first XS Jacket with the lowest price");
 
-
-
-
-
-
-
-
+        saleSectionAndAddToCartPage.addToCart();
+        LoggerUtility.infoTest("The user clicks on Add To Cart Button to put the selected jacket in the basket");
+        ChainTestListener.log("User clicked on Add To Cart Button to put the selected jacket in the basket");
 
     }
 }

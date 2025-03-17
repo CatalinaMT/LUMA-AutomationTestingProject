@@ -25,7 +25,7 @@ public class SignInPage
     }
 
 
-    //sign in elements
+    //identificarea WebElementelor de pe pagina de SignIn
 
     @FindBy (id="email")
     WebElement emailFieldSignIn;
@@ -44,7 +44,7 @@ public class SignInPage
     @FindBy (xpath = "//*[@class='message-error error message']")
     WebElement unsuccessfullySignInMessage;
 
-
+    //metode
     //Sign In cu credentiale valide - happy flow
     public void completeSignInPositiveFlow(CreateAccount_SignIn_ObjectData data3)
     {

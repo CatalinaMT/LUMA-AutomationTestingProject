@@ -9,5 +9,4 @@ public class CommonMethods
         return element.isDisplayed();
     }
 
-
 }

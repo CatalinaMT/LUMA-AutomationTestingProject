@@ -26,8 +26,7 @@ public class CreateAnAccountTest extends Hooks {
     //CREARE CONT POSITIVE FLOW
     //PASSED test=TREBUIE SA MODIFICAM la fiecare rulare valorile din xml "CreateAccount_SignIn_Data" pt firstName2, lastName2 si email2
     @Test
-    public void metodaTestPositiveFlow()
-    {
+    public void metodaTestPositiveFlow() {
         homePage = new HomePage(getDriver());
         elementsMethods = new ElementsMethods(getDriver());
         createAnAccountPage = new CreateAnAccountPage(getDriver());
@@ -44,7 +43,7 @@ public class CreateAnAccountTest extends Hooks {
         createAnAccountPage.completeCreateAccountPagePositiveFlow(data1);
         ChainTestListener.log("User completed fields from Create Account Page");
         javascriptMethods.scrollOnPage(0, 300);
-        ChainTestListener.log("User scroll on page");
+        ChainTestListener.log("User scrolls on page");
         createAnAccountPage.clickOnCreateAnAccButtonRegister();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
         ChainTestListener.log("User clicked on on Create Account Button from Register Page after he finished to complete fields");
@@ -54,8 +53,7 @@ public class CreateAnAccountTest extends Hooks {
 
     //CREARE CONT NEGATIVE FLOW
     @Test
-    public void metodaTestNegativeFlow()
-    {
+    public void metodaTestNegativeFlow() {
         homePage = new HomePage(getDriver());
         elementsMethods = new ElementsMethods(getDriver());
         createAnAccountPage = new CreateAnAccountPage(getDriver());
@@ -72,7 +70,7 @@ public class CreateAnAccountTest extends Hooks {
         createAnAccountPage.completeCreateAccountPageNegativeFlow(data2);
         ChainTestListener.log("User completed fields from Create Account Page");
         javascriptMethods.scrollOnPage(0, 300);
-        ChainTestListener.log("User scroll on page");
+        ChainTestListener.log("User scrolls on page");
         createAnAccountPage.clickOnCreateAnAccButtonRegister();
         LoggerUtility.infoTest("The user clicks on Create Account Button from Register Page");
         ChainTestListener.log("User clicked on on Create Account Button from Register Page after he finished to complete fields");

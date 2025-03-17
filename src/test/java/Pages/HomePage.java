@@ -20,19 +20,17 @@ public class HomePage
     PageFactory.initElements(driver, this);
     }
 
-    //identificarea elementelor de pe pagina de HomePage
+    //identificarea WebElementelor de pe pagina de HomePage
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[3]/a")
     WebElement createAnACCButtonHomePage;
 
     @FindBy(xpath = "/html/body/div[2]/header/div[1]/div/ul/li[2]/a")
     WebElement signInHomeButton;
 
-
     @FindBy(xpath = "//span[text()='Sale']")
-    WebElement saleButton;
+    WebElement saleButtonHomePage;
 
-
-
+    //metode
     public void clickOnCreateAccButtonHome()
     {
             elementsMethods.clickOnElement(createAnACCButtonHomePage);
@@ -45,9 +43,9 @@ public class HomePage
     }
 
 
-    public void clickOnSale()
+    public void clickOnSaleButtonHomePage()
     {
-        elementsMethods.clickOnElement(saleButton);
+        elementsMethods.clickOnElement(saleButtonHomePage);
     }
 
 

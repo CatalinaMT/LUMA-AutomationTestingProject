@@ -5,6 +5,7 @@
         <classes>
             <class name = "Tests.CreateAnAccountTest"/>
             <class name = "Tests.SignInTest"/>
+            <class name = "Tests.SaleSectionAndAddToCartTest"/>
         </classes>
     </test>
 </suite>

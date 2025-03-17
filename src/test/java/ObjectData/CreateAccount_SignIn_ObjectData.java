@@ -1,8 +1,6 @@
 package ObjectData;
 
-public class CreateAccount_SignIn_ObjectData
-{
-
+public class CreateAccount_SignIn_ObjectData {
 
     //Creare cont positive flow
     private String firstName1;
@@ -31,6 +29,7 @@ public class CreateAccount_SignIn_ObjectData
     public String getConfirmPassword1() {
         return confirmPassword1;
     }
+
 
     //Creare cont negative flow
     private String firstName2;
@@ -61,12 +60,12 @@ public class CreateAccount_SignIn_ObjectData
         return confirmPassword2;
     }
 
+
     //Sign In positive flow
     private String emailSignIn1;
     private String passwordSignIn1;
 
     //gettere
-
     public String getEmailSignIn1() {
         return emailSignIn1;
     }
@@ -88,7 +87,6 @@ public class CreateAccount_SignIn_ObjectData
     public String getPasswordSignIn2() {
         return passwordSignIn2;
     }
-
 
 
 }
